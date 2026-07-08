@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menú móvil
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const navbar = document.getElementById('navbar');
 
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        
-        // Animación básica de las barras
         menuToggle.classList.toggle('is-active');
     });
 
-    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-links li a').forEach(link => {
         link.addEventListener('click', () => {
             if(window.innerWidth <= 768) {
@@ -19,16 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Efecto sombra en el navbar al hacer scroll
-    const navbar = document.getElementById('navbar');
-    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-            navbar.style.height = '70px';
+        if (window.scrollY > 80) {
+            navbar.classList.add('solid-nav');
         } else {
-            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            navbar.style.height = '80px';
+            navbar.classList.remove('solid-nav');
         }
     });
 });
