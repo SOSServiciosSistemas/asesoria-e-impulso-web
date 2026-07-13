@@ -114,6 +114,7 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
 .texto-slogan {
     font-style: italic;      /* Esto pone las letras en formato cursiva */
     margin-left: -15px;
+
 }
 
 .big-logo-container {
@@ -152,7 +153,18 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
     box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; border-bottom: 4px solid transparent;
 }
 .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--accent-bronze); }
-.service-icon { font-size: 3rem; margin-bottom: 20px; }
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.service-icon img {
+    width: 9rem;
+    height: 9rem;
+    object-fit: contain;
+}
 .service-card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.2rem; }
 .service-card p { color: var(--text-light); font-size: 0.95rem; }
 
