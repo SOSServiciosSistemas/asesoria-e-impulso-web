@@ -101,10 +101,13 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
    Hero Section y Logo Grande
 ========================================= */
 .hero {
-    height: 100vh;
-    /* Opción 5: transparente arriba → verde profundo abajo (preserva la foto) */
+    min-height: 100vh; /* 'height' por 'min-height' para que pueda crecer si es necesario */
+    padding-top: 100px; /* Colchón para que el contenido nunca toque la barra de navegación */
+    padding-bottom: 50px;
     background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(11,107,59,0.55) 50%, rgba(11,107,59,0.9) 100%), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    display: flex; align-items: center; position: relative;
+    display: flex; 
+    align-items: center; 
+    position: relative;
 }
 .hero-content {
     position: relative; z-index: 2; color: var(--white); max-width: 800px;
@@ -112,9 +115,12 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
 }
 
 .texto-slogan {
-    font-style: italic;      /* Esto pone las letras en formato cursiva */
-    margin-left: -15px;
-
+    color: var(--primary-blue); 
+    margin: 0 0 20px 0; /* Quitamos el margen negativo lateral y agregamos separación abajo */
+    font-size: 1.5rem; /* Tamaño adaptable */
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Una ligera sombra para que se lea perfecto sin importar el fondo */
 }
 
 .big-logo-container {
@@ -191,4 +197,5 @@ footer { background-color: var(--primary-blue); color: var(--white); padding: 60
     .hero-content h1 { font-size: 2.5rem; }
     .about-grid { grid-template-columns: 1fr; }
     .big-logo { max-width: 320px;}
+    .texto-slogan { font-size: 1.2rem; }
 }
