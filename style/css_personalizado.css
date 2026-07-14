@@ -128,6 +128,148 @@ ul { list-style: none; }
     transform: translateY(-50px);
 }
 
+
+/* =========================================
+   Sección Próximos Eventos (Cajas Interactivas)
+========================================= */
+.section-title .stylish-title {
+    color: var(--primary-blue);
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.subtitle-event-main {
+    color: var(--accent-bronze);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.event-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Invierte el orden para el segundo evento en pantallas grandes */
+.event-row.reverse-row {
+    flex-direction: row-reverse;
+}
+
+.event-date {
+    background-color: #a4cc76; /* Verde claro de tu diseño */
+    color: #314214; /* Letra verde oscuro/oliva */
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    min-width: 130px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.event-date .day {
+    display: block;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.event-date .month-year {
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+/* Caja de Título con efecto Hover */
+.event-title-box {
+    background-color: #a4cc76;
+    color: #314214;
+    padding: 20px 30px;
+    border-radius: 20px;
+    flex-grow: 1;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95px;
+}
+
+.event-title-box:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.event-title-box .hover-text {
+    display: none;
+    font-size: 1.4rem;
+}
+
+/* Animación de cambio de texto */
+.event-title-box:hover .original-text {
+    display: none;
+}
+
+.event-title-box:hover .hover-text {
+    display: block;
+}
+
+/* Botón Inscribirse */
+.event-btn {
+    background-color: var(--accent-bronze);
+    color: var(--white);
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-width: 190px;
+}
+
+.event-btn:hover {
+    background-color: #6a4a29;
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Ajustes para Celulares */
+@media (max-width: 768px) {
+    .section-title .stylish-title { font-size: 1.8rem; }
+    .subtitle-event-main { font-size: 1.1rem; margin-bottom: 30px; }
+    
+    /* En celulares, todo se apila de arriba a abajo en orden normal */
+    .event-row, .event-row.reverse-row {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .event-title-box { width: 100%; min-height: 80px; }
+    .event-btn { width: 100%; padding: 15px; }
+}
+
+
+
 /* =========================================
    Navegación (Efecto Animado)
 ========================================= */

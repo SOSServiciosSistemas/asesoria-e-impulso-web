@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // =========================================
+    // Lógica del Menú Móvil y Navbar Animado
+    // =========================================
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     const navbar = document.getElementById('navbar');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('is-active');
-    });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('is-active');
+        });
+    }
 
     document.querySelectorAll('.nav-links li a').forEach(link => {
         link.addEventListener('click', () => {
-            if(window.innerWidth <= 768) {
+            if(window.innerWidth <= 768 && navLinks) {
                 navLinks.classList.remove('active');
             }
         });
@@ -23,39 +28,64 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('solid-nav');
         }
     });
-});
 
-// =========================================
-    // Lógica del Cartel Emergente (Póster)
+    // =========================================
+    // Lógica del Cartel Emergente y Próximos Eventos
     // =========================================
     const welcomeBanner = document.getElementById('welcome-banner');
     const closeBannerBtn = document.getElementById('close-banner');
 
-    // 🔴 PANEL DE CONTROL DEL PÓSTER 🔴
-    // CambiaR a 'false' para apagar el cartel cuando no haya eventos.
+    // Panel de Control del Cartel
     const mostrarCartel = true; 
-    
-    // Cambiar este nombre cada vez que subas un póster nuevo (ej. 'poster_septiembre', 'poster_promo1').
-    // Esto fuerza a que los usuarios que ya cerraron el viejo, vean el nuevo.
     const versionCartel = 'poster_agosto_2026'; 
 
+    // Función reutilizable para abrir el cartel
+    const openBanner = () => {
+        if (welcomeBanner) {
+            welcomeBanner.style.display = 'flex';
+            // Pequeño delay para asegurar que el display 'flex' se aplique antes de quitar la clase hidden
+            setTimeout(() => {
+                welcomeBanner.classList.remove('hidden');
+            }, 10);
+        }
+    };
+
+    // Función reutilizable para cerrar el cartel
+    const closeBanner = () => {
+        if (welcomeBanner) {
+            welcomeBanner.classList.add('hidden');
+            // Guardamos en la sesión que ya se cerró
+            sessionStorage.setItem(versionCartel, 'true');
+            // Esperamos a que termine la animación en CSS antes de quitarlo del flujo
+            setTimeout(() => {
+                welcomeBanner.style.display = 'none';
+            }, 300);
+        }
+    };
+
     if (welcomeBanner) {
-        // Si mostrarCartel es falso, o si el usuario ya cerró esta versión específica, lo ocultamos.
+        // Control inicial de carga de página
         if (!mostrarCartel || sessionStorage.getItem(versionCartel)) {
             welcomeBanner.style.display = 'none';
+            welcomeBanner.classList.add('hidden'); // Asegura consistencia de clases
         } else {
-            // Función para cerrar el cartel
-            const closeBanner = () => {
-                welcomeBanner.classList.add('hidden');
-                sessionStorage.setItem(versionCartel, 'true');
-                setTimeout(() => {
-                    welcomeBanner.style.display = 'none';
-                }, 300);
-            };
+            // Si es primera vez en la sesión, se muestra abierto por defecto
+            openBanner();
+        }
 
-            // Activar botón de cierre
-            if (closeBannerBtn) {
-                closeBannerBtn.addEventListener('click', closeBanner);
-            }
+        // Asignar el evento de cerrar a la 'X'
+        if (closeBannerBtn) {
+            closeBannerBtn.addEventListener('click', closeBanner);
         }
     }
+
+    // Evento para abrir el cartel desde las cajas de eventos
+    const modalTriggers = document.querySelectorAll('.open-modal-btn');
+    if (modalTriggers.length > 0) {
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                openBanner();
+            });
+        });
+    }
+});
