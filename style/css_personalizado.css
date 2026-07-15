@@ -73,23 +73,26 @@ ul { list-style: none; }
 }
 
 .modal-content.image-modal {
-    background-color: transparent; /* Quitamos el fondo blanco */
-    padding: 0; /* Quitamos los márgenes internos */
+    background-color: transparent;
+    padding: 0;
     border-radius: 12px;
-    width: 90%;
-    max-width: 550px; /* Tamaño ideal para que el póster se vea nítido */
+    width: auto; /* Permite que el contenedor se encoja proporcionalmente */
+    max-width: 90%; 
     position: relative;
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     transform: translateY(0);
     transition: transform 0.3s ease;
-    display: flex;
+    display: inline-block; /* Hace que el contenedor se ajuste exactamente a los bordes de la imagen */
 }
 
 .promo-image {
-    width: 100%;
+    width: auto;
+    max-width: 550px; /* El límite máximo de ancho para monitores gigantes */
+    max-height: 85vh; /* Truco: máximo el 85% de la altura de la pantalla */
     height: auto;
     display: block;
-    border-radius: 12px; /* Redondeamos las esquinas de la imagen */
+    border-radius: 12px;
+    object-fit: contain; /* Asegura que la imagen no se deforme al reducirse */
 }
 
 /* Ajuste del botón de cerrar para que flote sobre la imagen */
