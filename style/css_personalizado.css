@@ -54,6 +54,23 @@ ul { list-style: none; }
 .btn-secondary { background-color: transparent; border: 2px solid var(--white); color: var(--white); }
 .btn-secondary:hover { background-color: var(--white); color: var(--primary-blue); }
 
+/* Estilo para los títulos de sección generales */
+.section-title .stylish-title {
+    color: var(--primary-blue);
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.subtitle-event-main {
+    color: var(--accent-bronze);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
 /* =========================================
    Cartel Emergente (Modal de Imagen)
 ========================================= */
@@ -63,7 +80,7 @@ ul { list-style: none; }
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo un poco más oscuro para resaltar la imagen */
+    background-color: rgba(0, 0, 0, 0.7); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,26 +93,25 @@ ul { list-style: none; }
     background-color: transparent;
     padding: 0;
     border-radius: 12px;
-    width: auto; /* Permite que el contenedor se encoja proporcionalmente */
+    width: auto; 
     max-width: 90%; 
     position: relative;
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     transform: translateY(0);
     transition: transform 0.3s ease;
-    display: inline-block; /* Hace que el contenedor se ajuste exactamente a los bordes de la imagen */
+    display: inline-block; 
 }
 
 .promo-image {
     width: auto;
-    max-width: 550px; /* El límite máximo de ancho para monitores gigantes */
-    max-height: 85vh; /* Truco: máximo el 85% de la altura de la pantalla */
+    max-width: 550px; 
+    max-height: 85vh; 
     height: auto;
     display: block;
     border-radius: 12px;
-    object-fit: contain; /* Asegura que la imagen no se deforme al reducirse */
+    object-fit: contain; 
 }
 
-/* Ajuste del botón de cerrar para que flote sobre la imagen */
 .image-modal .close-btn {
     position: absolute;
     top: -15px;
@@ -126,152 +142,9 @@ ul { list-style: none; }
     opacity: 0;
     pointer-events: none;
 }
-
 .modal-overlay.hidden .modal-content {
     transform: translateY(-50px);
 }
-
-
-/* =========================================
-   Sección Próximos Eventos (Cajas Interactivas)
-========================================= */
-.section-title .stylish-title {
-    color: var(--primary-blue);
-    font-size: 2.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 5px;
-}
-
-.subtitle-event-main {
-    color: var(--accent-bronze);
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-
-.events-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 950px;
-    margin: 0 auto;
-}
-
-.event-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Invierte el orden para el segundo evento en pantallas grandes */
-.event-row.reverse-row {
-    flex-direction: row-reverse;
-}
-
-.event-date {
-    background-color: #a4cc76; /* Verde claro de tu diseño */
-    color: #314214; /* Letra verde oscuro/oliva */
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    min-width: 130px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.event-date .day {
-    display: block;
-    font-size: 2rem;
-    line-height: 1;
-}
-
-.event-date .month-year {
-    font-size: 1.1rem;
-    line-height: 1.2;
-}
-
-/* Caja de Título con efecto Hover */
-.event-title-box {
-    background-color: #a4cc76;
-    color: #314214;
-    padding: 20px 30px;
-    border-radius: 20px;
-    flex-grow: 1;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.3rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 95px;
-}
-
-.event-title-box:hover {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.event-title-box .hover-text {
-    display: none;
-    font-size: 1.4rem;
-}
-
-/* Animación de cambio de texto */
-.event-title-box:hover .original-text {
-    display: none;
-}
-
-.event-title-box:hover .hover-text {
-    display: block;
-}
-
-/* Botón Inscribirse */
-.event-btn {
-    background-color: var(--accent-bronze);
-    color: var(--white);
-    padding: 20px 30px;
-    border-radius: 10px;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    min-width: 190px;
-}
-
-.event-btn:hover {
-    background-color: #6a4a29;
-    color: var(--white);
-    transform: translateY(-3px);
-}
-
-/* Ajustes para Celulares */
-@media (max-width: 768px) {
-    .section-title .stylish-title { font-size: 1.8rem; }
-    .subtitle-event-main { font-size: 1.1rem; margin-bottom: 30px; }
-    
-    /* En celulares, todo se apila de arriba a abajo en orden normal */
-    .event-row, .event-row.reverse-row {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .event-title-box { width: 100%; min-height: 80px; }
-    .event-btn { width: 100%; padding: 15px; }
-}
-
-
 
 /* =========================================
    Navegación (Efecto Animado)
@@ -298,7 +171,6 @@ header.solid-nav .nav-links li a { color: var(--primary-blue); }
 header.solid-nav .nav-links li a:hover { color: var(--accent-bronze); }
 .nav-links li a.btn-primary { color: var(--white) !important; }
 
-/* Logo pequeño */
 .small-logo-container {
     height: 80px; display: flex; align-items: center;
     opacity: 0; transform: translateY(20px); transition: all 0.4s ease; pointer-events: none;
@@ -308,7 +180,6 @@ header.solid-nav .small-logo-container {
     opacity: 1; transform: translateY(0); pointer-events: auto;
 }
 
-/* Menú móvil */
 .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
 .menu-toggle .bar {
     height: 3px; width: 25px; background-color: var(--white);
@@ -320,8 +191,8 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
    Hero Section y Logo Grande
 ========================================= */
 .hero {
-    min-height: 100vh; /* 'height' por 'min-height' para que pueda crecer si es necesario */
-    padding-top: 100px; /* Colchón para que el contenido nunca toque la barra de navegación */
+    min-height: 100vh; 
+    padding-top: 100px; 
     padding-bottom: 50px;
     background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(11,107,59,0.55) 50%, rgba(11,107,59,0.9) 100%), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     display: flex; 
@@ -332,33 +203,30 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
     position: relative; z-index: 2; color: var(--white); max-width: 800px;
     margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;
 }
-
 .texto-slogan {
-    color: var(--primary-blue); 
-    margin: 0 0 20px 0; /* Quitamos el margen negativo lateral y agregamos separación abajo */
-    font-size: 1.5rem; /* Tamaño adaptable */
+    color: var(--white); 
+    margin: 0 0 20px 0; 
+    font-size: 1.5rem; 
     font-weight: 600;
     text-align: center;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Una ligera sombra para que se lea perfecto sin importar el fondo */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); 
 }
-
 .big-logo-container {
     margin-bottom: 30px;
     display: inline-block;
 }
 .big-logo {
     width: 100%; 
-    max-width: 500px; /* Aumento en el tamaño (antes era 280px).  */
+    max-width: 500px; 
     height: auto; 
     display: block; 
-    /* Agrega una sombra directamente a la silueta del logo para que resalte contra las montañas */
     filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.5));
 }
 .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
 .hero-content p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; }
 
 /* =========================================
-   Secciones Interiores
+   Sección Nosotros
 ========================================= */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 .about-text p { margin-bottom: 20px; color: var(--text-light); }
@@ -369,7 +237,133 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
 }
 .feature-box h3 { color: var(--primary-blue); margin-bottom: 10px; }
 
-/* Servicios */
+/* =========================================
+   Banner de Expectativa (Próximos Eventos)
+========================================= */
+.upcoming-banner {
+    background: linear-gradient(145deg, #ffffff, #f4f7f6);
+    padding: 60px 50px 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 61, 165, 0.06);
+    max-width: 750px;
+    margin: 60px auto 0;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(0, 61, 165, 0.05);
+    border-bottom: 5px solid var(--accent-bronze);
+}
+.upcoming-icon {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 61, 165, 0.3);
+    border: 6px solid var(--bg-light);
+}
+.upcoming-icon svg {
+    width: 32px;
+    height: 32px;
+}
+.upcoming-content .teaser-text {
+    color: var(--text-dark); 
+    font-family: var(--font-heading); 
+    font-size: 1.4rem;
+    line-height: 1.7;
+    font-weight: 500; 
+    margin-bottom: 35px;
+}
+.upcoming-content .teaser-text strong {
+    color: var(--primary-blue); 
+    font-weight: 700;
+}
+.upcoming-content .highlight-pill {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 61, 165, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.upcoming-content .highlight-pill:hover {
+    transform: translateY(-3px);
+    background: var(--accent-bronze);
+    box-shadow: 0 8px 20px rgba(139, 99, 57, 0.3);
+}
+
+/* =========================================
+   Carrusel Interactivo 3D (Clean Design)
+========================================= */
+.carousel {
+    position: relative;
+    z-index: 1;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    pointer-events: none;
+}
+.carousel-item {
+    --width: clamp(200px, 30vw, 350px);
+    --height: clamp(250px, 40vw, 450px);
+    --x: calc(var(--active) * 800%);
+    --y: calc(var(--active) * 200%);
+    --rot: calc(var(--active) * 120deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+    
+    overflow: hidden;
+    position: absolute;
+    z-index: var(--zIndex);
+    width: var(--width);
+    height: var(--height);
+    margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    user-select: none;
+    transform-origin: 0% 100%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    background: var(--white);
+    pointer-events: all;
+    transform: translate(var(--x), var(--y)) rotate(var(--rot));
+    transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+    cursor: grab;
+}
+.carousel-item:active {
+    cursor: grabbing;
+}
+.carousel-item .carousel-box {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+    opacity: var(--opacity);
+}
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    pointer-events: none;
+}
+
+/* =========================================
+   Sección Servicios (Grid)
+========================================= */
 .services-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;
 }
@@ -379,19 +373,43 @@ header.solid-nav .menu-toggle .bar { background-color: var(--primary-blue); }
 }
 .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--accent-bronze); }
 .service-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 3rem; margin-bottom: 20px; display: flex; justify-content: center; align-items: center;
 }
 .service-icon img {
-    width: 9rem;
-    height: 9rem;
-    object-fit: contain;
+    width: 9rem; height: 9rem; object-fit: contain;
 }
 .service-card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.2rem; }
 .service-card p { color: var(--text-light); font-size: 0.95rem; }
+
+/* =========================================
+   Impulsos Exitosos (Eventos Pasados)
+========================================= */
+.events-list {
+    display: flex; flex-direction: column; gap: 30px; max-width: 950px; margin: 0 auto;
+}
+.event-row {
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+}
+.event-row.reverse-row {
+    flex-direction: row-reverse;
+}
+.event-date {
+    padding: 15px 20px; border-radius: 10px; text-align: center;
+    font-family: var(--font-heading); font-weight: 700; min-width: 130px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.event-date .day {
+    display: block; font-size: 2rem; line-height: 1;
+}
+.event-date .month-year {
+    font-size: 1.1rem; line-height: 1.2;
+}
+.event-title-box {
+    padding: 20px 30px; border-radius: 20px; flex-grow: 1; text-align: center;
+    font-family: var(--font-heading); font-weight: 700; font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex; justify-content: center; align-items: center; min-height: 95px;
+}
 
 /* =========================================
    Footer
@@ -413,8 +431,35 @@ footer { background-color: var(--primary-blue); color: var(--white); padding: 60
     .nav-links.active { display: flex; }
     .nav-links li a { color: var(--primary-blue); }
     .menu-toggle { display: flex; }
+    
     .hero-content h1 { font-size: 2.5rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .big-logo { max-width: 320px;}
+    .big-logo { max-width: 320px; }
     .texto-slogan { font-size: 1.2rem; }
+    
+    .about-grid { grid-template-columns: 1fr; }
+    
+    .section-title .stylish-title { font-size: 1.8rem; }
+    .subtitle-event-main { font-size: 1.1rem; margin-bottom: 30px; }
+    
+    /* Ajustes Banner Expectativa Móvil */
+    .upcoming-banner {
+        padding: 50px 20px 30px;
+        margin-top: 50px;
+    }
+    .upcoming-content .teaser-text {
+        font-size: 1.15rem;
+    }
+    .upcoming-content .highlight-pill {
+        font-size: 0.95rem;
+        padding: 10px 25px;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+    
+    /* Cajas de Eventos Pasados Móvil */
+    .event-row, .event-row.reverse-row {
+        flex-direction: column; width: 100%;
+    }
+    .event-title-box { width: 100%; min-height: 80px; }
 }
