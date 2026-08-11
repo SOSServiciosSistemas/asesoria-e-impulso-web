@@ -420,6 +420,45 @@ footer { background-color: var(--primary-blue); color: var(--white); padding: 60
 .footer-contact p { margin-bottom: 10px; }
 .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.85rem; }
 
+
+/* =========================================
+   Redes Sociales (Footer) - Colores Oficiales
+========================================= */
+/* Contenedor de los botones */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Estructura base de los botones circulares */
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.4rem;
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al pasar el mouse */
+.social-icons a:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.15); /* Hace que el color original brille un poco más */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores originales de cada marca */
+.social-fb { background-color: #1877F2; } /* Azul oficial de Facebook */
+.social-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); } /* Degradado oficial de Instagram */
+.social-x { background-color: #000000; } /* Negro oficial de X */
+.social-wa { background-color: #25D366; } /* Verde oficial de WhatsApp */
+
 /* =========================================
    Responsive Design
 ========================================= */
